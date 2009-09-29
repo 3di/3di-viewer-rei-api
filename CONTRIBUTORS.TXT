@@ -1,0 +1,4 @@
+Contributors to the Adapter project include the following organizations
+and/or individuals:
+
+* 3Di, Inc. (http://3di.jp)

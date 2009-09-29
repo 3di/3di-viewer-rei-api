@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd" version="1.7">
+  <Solution name="Adapter" activeConfig="Debug" path="./" version="0.4.0-svn">
+    <Configuration name="Debug">
+      <Options>
+        <CompilerDefines>TRACE;DEBUG</CompilerDefines>
+        <OptimizeCode>false</OptimizeCode>
+        <CheckUnderflowOverflow>false</CheckUnderflowOverflow>
+        <AllowUnsafe>false</AllowUnsafe>
+        <WarningLevel>4</WarningLevel>
+        <WarningsAsErrors>false</WarningsAsErrors>
+        <SuppressWarnings></SuppressWarnings>
+        <OutputPath>bin</OutputPath>
+        <DebugInformation>true</DebugInformation>
+        <IncrementalBuild>true</IncrementalBuild>
+        <NoStdLib>false</NoStdLib>
+      </Options>
+    </Configuration>
+    <Configuration name="Release">
+      <Options>
+        <CompilerDefines>TRACE</CompilerDefines>
+        <OptimizeCode>true</OptimizeCode>
+        <CheckUnderflowOverflow>false</CheckUnderflowOverflow>
+        <AllowUnsafe>false</AllowUnsafe>
+        <WarningLevel>4</WarningLevel>
+        <WarningsAsErrors>false</WarningsAsErrors>
+        <SuppressWarnings></SuppressWarnings>
+        <OutputPath>bin</OutputPath>
+        <DebugInformation>false</DebugInformation>
+        <IncrementalBuild>true</IncrementalBuild>
+        <NoStdLib>false</NoStdLib>
+      </Options>
+    </Configuration>
+
+    <Project name="Adapter" path="3DiOpenViewer/Adapter" type="Library">
+      <Configuration name="Debug">
+        <Options>
+          <OutputPath>../../bin/</OutputPath>
+        </Options>
+      </Configuration>
+      <Configuration name="Release">
+        <Options>
+          <OutputPath>../../bin/</OutputPath>
+        </Options>
+      </Configuration>
+
+      <ReferencePath>../../bin/</ReferencePath>
+      <Reference name="Interfaces" />
+      <Reference name="OpenViewer.dll" />
+      <Reference name="System" localCopy="false"/>
+      <Reference name="System.Drawing" localCopy="false"/> 
+      <Reference name="System.Xml"/>
+      <Reference name="System.Web"/>
+      <Reference name="XMLRPC.dll"/>
+      <Reference name="Nini.dll" />
+      <Reference name="log4net.dll" />
+      <Reference name="irrKlang.NET2.0.dll" />
+      <Reference name="Irrlicht.NET.dll" />
+      <Reference name="Irrlicht.Extensions.dll" />
+      <Reference name="Mono.Addins.dll" />
+      <Reference name="IrrParseLib" />
+      <Reference name="OpenViewer.bootstrap" /> 
+      <Reference name="OpenViewerVoice" />
+      <Reference name="OpenMetaverse.dll" />
+      <Reference name="OpenMetaverseTypes.dll" />
+      <Reference name="OpenMetaverse.Utilities.dll" />
+      <Reference name="Microsoft.DirectX.dll" />
+      <Reference name="Microsoft.DirectX.AudioVideoPlayback.dll" />
+      <Reference name="Microsoft.DirectX.Direct3D.dll" />
+      <Reference name="Microsoft.DirectX.Direct3DX.dll" />
+      <Reference name="PrimMesher.dll" />
+      <Reference name="System.Windows.Forms" />
+      <Reference name="System.Data" />
+      <Reference name="Lib3Di" />
+      <Reference name="SmartThreadPool" />
+      <Files>
+      	<Match pattern="*.cs" recurse="true"/>
+        <Match pattern="*.resx" buildAction="EmbeddedResource" recurse="true"/>
+      </Files>
+    </Project>
+  </Solution>
+</Prebuild>
+
+
