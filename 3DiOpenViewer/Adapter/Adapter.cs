@@ -262,6 +262,16 @@ namespace OpenViewer
         public event OnReceiveMessageListener OnReceiveMessage;
 
         /// <summary>
+        /// Send InstantMessage via DHTM
+        /// </summary>
+        /// <param name="_target_uuid">target user uuid</param>
+        /// <param name="_message">message</param>
+        public void CallSendIM(string _target_uuid, string _message)
+        {
+            reference.Viewer.ProtocolManager.SendIM(_target_uuid, _message);
+        }
+
+        /// <summary>
         /// Send text chat message via DHTM
         /// </summary>
         /// <param name="_message">Chat message</param>
