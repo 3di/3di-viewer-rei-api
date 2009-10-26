@@ -419,6 +419,7 @@ namespace OpenViewer
 
         #region 7. User avatar
         public event AvatarPickListener OnAvatarPicked;
+        public event AvatarAnimationEndListener OnAnimationEnd;
 
         public string CallGetLoggedinAvatarUUIDList()
         {
@@ -435,6 +436,12 @@ namespace OpenViewer
         public void CallAvatarCustomizeAnimation(int _index)
         {
             reference.Viewer.AvatarManager.RequestCustomizeAnimation(_index);
+        }
+
+        public void CallAnimationEndEvent(string _animationName)
+        {
+            if (OnAnimationEnd != null)
+                OnAnimationEnd(_animationName);
         }
 
         private void AvatarPickedThredFunction(object _parent)
