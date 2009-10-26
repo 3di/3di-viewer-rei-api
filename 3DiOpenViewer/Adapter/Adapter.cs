@@ -406,6 +406,11 @@ namespace OpenViewer
         #region 7. User avatar
         public event AvatarPickListener OnAvatarPicked;
 
+        public string CallGetLoggedinAvatarUUIDList()
+        {
+            return reference.Viewer.AvatarManager.GetUserUUIDList();
+        }
+
         public void CallAvatarPicked(string _avatarInformation)
         {
             // call OnTouched event.
