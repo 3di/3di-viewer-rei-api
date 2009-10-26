@@ -449,6 +449,11 @@ namespace OpenViewer
             avatarPickedThread = null;
         }
 
+        public string CallGetUserAvatarAnimationName()
+        {
+            return reference.Viewer.AvatarManager.GetAvatarCurrentAnimation();
+        }
+
         public string CallGetUserUUID()
         {
             return reference.Viewer.ProtocolManager.AvatarConnection.GetSelfUUID.ToString();
