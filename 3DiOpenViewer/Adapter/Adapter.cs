@@ -260,6 +260,7 @@ namespace OpenViewer
 
         #region 4. Text Chat
         public event OnReceiveMessageListener OnReceiveMessage;
+        public event OnReceiveMessageListener OnReceiveInstantMessage;
 
         /// <summary>
         /// Send InstantMessage via DHTM
@@ -296,6 +297,19 @@ namespace OpenViewer
         {
             if (OnReceiveMessage != null)
                 OnReceiveMessage(_uuid, _avatarName, _message);
+        }
+
+        /// <summary>
+        /// When a user receive instant message in In-world,
+        /// this function will notify the reseived message.
+        /// </summary>
+        /// <param name="_uuid">UUID of avatar</param>
+        /// <param name="_avatarName">Name of avatar</param>
+        /// <param name="_message">Received message</param>
+        public void CallReceiveInstantMessaged(string _uuid, string _avatarName, string _message)
+        {
+            if (OnReceiveInstantMessage != null)
+                OnReceiveInstantMessage(_uuid, _avatarName, _message);
         }
 
         /// <summary>
