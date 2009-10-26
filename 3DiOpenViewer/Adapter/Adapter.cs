@@ -499,6 +499,7 @@ namespace OpenViewer
 
         #region 8. Common
         public event StateChangedListener OnStateChanged;
+        public event ImageDownloadedListener OnImageLoaded;
 
         public void CallStateChanged(int _state)
         {
@@ -519,6 +520,30 @@ namespace OpenViewer
         public int CallGetTextureCount()
         {
             return reference.Device.VideoDriver.TextureCount;
+        }
+
+        public void CallReceiveImage(string texname)
+        {
+            if (OnImageLoaded != null)
+                OnImageLoaded(texname);
+        }
+
+        public void CallRequestImage(string _assetUUID, string _useCache)
+        {
+            bool use = false;
+            bool.TryParse(_useCache, out use);
+            reference.Viewer.ProtocolManager.RequestImage(_assetUUID, use);
+         }
+
+        public string CallSetTexture(string _objectUUID, int _materialIndex, string _filename, string _requestEnable)
+        {
+            bool req = false;
+            bool.TryParse(_requestEnable, out req);
+            bool res = reference.Viewer.AvatarManager.SetTexture(_objectUUID, _materialIndex, _filename, req);
+            if (!res)
+                res = reference.Viewer.EntityManager.SetTexture(_objectUUID, _materialIndex, _filename, req);
+
+            return res.ToString();
         }
         #endregion
 
